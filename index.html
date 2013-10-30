@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+  <title>Angular Application</title>
+  <meta charset='UTF-8' />
+  <style>
+  	.menuItems li{display: inline; padding-left: 15px; font-weight: bold}
+  	.menuItems li a:hover{text-decoration: underline; color: blue;}
+  	.actived{font-size: 24px; color: red;}
+  	.notActive{text-decoration: underline;color: blue;}
+  	.MauDo{color: red;}
+  </style>
+</head>
+<body>
+	<div id='slide' ng-controller="slideCtrl">
+		<div ng-init="autoChange()"></div>
+		Current model: <input type='text' ng-model='img' />
+		<img src='{{img}}' width = '800' height='500' alt="">
+		<ul class='menuItems'>
+			<!--<li ng-repeat='item in items' ng-model="getId(item.id)" ng-mouseover="changeImage(item.id)"><a href="#" class="{{isActive}}">{{item.name}}</a></li>-->
+			<li ng-repeat="item in items" class="{{getId(item.id)}}">{{item.name}}</li>
+		</ul>
+
+		<h2>{{counter}}</h2>
+		<button ng-click="previous()">Previous</button>
+		<button ng-click="autoChangeDanToc()">Auto Play Kiểu Dân Tộc</button>
+		<button ng-click="autoChange()">Auto Play</button>
+		<button ng-click="stop()">Stop</button>
+		<button ng-click="testTimeout()">Test Timeout</button>
+		<button ng-click="next()">Next</button>
+	</div>
+
+
+
+<script type="text/javascript" src="libs/angular.js"></script>
+<script type="text/javascript" src="libs/angular-animate.js"></script>
+<script type="text/javascript" src="scripts/angularSlideShow.js"></script>
+</body>
+</html>
